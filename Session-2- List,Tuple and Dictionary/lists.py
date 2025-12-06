@@ -63,13 +63,14 @@ print(fruit_items)
 fruit_items.pop()
 
 # pop(6) is used to remove item from a list in sixth index position
-fruit_items.pop(6)
-print(fruit_items)
+popped_item_from_list = fruit_items.pop(6)
+print(popped_item_from_list)
+
 
 # clear() is used for emptying a list
 # fruit_items.clear()
 # print(fruit_items)
 
 # remove() will remove item from list
-fruit_items.remove('sapota')
-print(fruit_items)
+removed_item = fruit_items.remove('sapota')
+print(removed_item)

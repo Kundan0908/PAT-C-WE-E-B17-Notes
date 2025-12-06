@@ -13,3 +13,5 @@ if user_guess == number:
     print("congratulations!!! You have guessed right!!!")
 else:
     print(f"Try again, correct number was {number}")
+
+# programming -> Solution is what you think in ur head -> Implement that same soln with programming logic that you know
