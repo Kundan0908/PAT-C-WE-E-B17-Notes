@@ -14,8 +14,13 @@
 
 
 import unittest
+import re
 def addition(a,b):
     return a+b
+
+def subtraction(a,b):
+    return a-b
+
 
 class TestCase1(unittest.TestCase):
     def test1(self):
@@ -25,7 +30,6 @@ class TestCase1(unittest.TestCase):
         self.assertEqual(addition(20,30),50)
 
     def test3(self):
-        self.assertEqual(addition(20, 30), 30)
+        self.assertEqual(subtraction(20, 30), 30)
 
-if __name__== '__main__':
-    unittest.main()
+
