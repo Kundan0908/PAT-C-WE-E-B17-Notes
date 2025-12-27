@@ -1,0 +1,22 @@
+-- SELECT SUM(course_id) AS sum_of_course_ids FROM course (summation of all the values in course_id)
+-- SELECT MAX(course_id) AS max_course_id FROM course (maximum OF ALL the VALUES IN course_id)
+-- SELECT MIN(course_id) AS min_course_id FROM course (minimum OF ALL the VALUES IN course_id)
+-- SELECT count(*) AS total from course (count of the total column in a table)
+
+-- SELECT student_id, COUNT(*) FROM course GROUP BY student_id (count of each student_id after grouping them together)
+
+SELECT student_id FROM course GROUP BY student_id HAVING COUNT(*)>1
+
+-- SELECT distinct(student_id) FROM course ( Removes duplicate values)
+
+
+
+-- SELECT CONCAT('Hello','hi') AS concatenated_word (concatenting multiple strings AS single string
+-- SELECT UPPER('hello') as upper_letter ( UPPERcase VALUES are shown)
+-- SELECT LOWER ('HELLO') AS lower_letter ( lowercase VALUES are shown)
+
+-- SELECT NOW() AS cur_date_time (present TIMESTAMP IS shown)
+-- SELECT CURDATE() AS current_dat (curr_date)
+
+
+SQL- Diagram link: https://app.eraser.io/workspace/oEauDsYCWOUpJfa4midG?origin=share
