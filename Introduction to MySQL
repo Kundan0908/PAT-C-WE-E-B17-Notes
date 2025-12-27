@@ -26,3 +26,6 @@ VALUES ('Hemanth','P-Automation'),('Gayathri','J-Automation'),('Venkata','C#-Aut
 /* UPDATE student 
 SET course_name ='C#-Automation' 
 WHERE student_id = 5 */
+
+
+Flow Diagram link - https://app.eraser.io/workspace/oEauDsYCWOUpJfa4midG?origin=share
