@@ -1,0 +1,28 @@
+-- SHOW databases
+-- CREATE DATABASE guvi
+-- USE guvi (focuses on guvi database)
+/*CREATE TABLE course(
+course_id INT,
+course_name VARCHAR(15),
+student_id INT,
+FOREIGN KEY (student_id) REFERENCES student(student_id)
+) */
+
+-- SHOW tables
+/* INSERT INTO course (course_id,course_name,student_id)
+VALUES (111,'J-Automation',1),(112,'P-Automation',2),(113,'.N-Automation',3),(114,'C#-Automation',1),(115,'Manual-Testing',1) */
+
+/*CREATE TABLE student(
+student_id INT AUTO_INCREMENT PRIMARY key,
+student_name CHAR(25),
+course_name CHAR(25)
+) */
+
+/*INSERT INTO student (student_name,course_name)
+VALUES ('Hemanth','P-Automation'),('Gayathri','J-Automation'),('Venkata','C#-Automation'),('Vishnu','.N-Automation'),('Nasina','Manual-Testing'),('Ragesh','P-Automation'),('Yugendran','Manual-Testing'),('Aravind','.N-Automation'),('Bhaskar','P-Automation')/*
+
+-- SELECT * FROM student;
+
+/* UPDATE student 
+SET course_name ='C#-Automation' 
+WHERE student_id = 5 */
