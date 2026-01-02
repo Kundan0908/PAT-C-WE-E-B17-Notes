@@ -1,0 +1,60 @@
+-- ******** Create below table *******------------
+
+-- create table customers (customer_id int primary key auto_increment, name varchar(20) not null, email varchar(20) unique not null);
+-- create table books (book_id int primary key auto_increment, title varchar(20) not null, author varchar(20) not null, price int not null, stock int not null);
+-- create table orders (order_id int primary key auto_increment, customer_id int, order_date datetime default current_timestamp, total_amount int, foreign key (customer_id) references customers(customer_id))
+-- create table order_details (order_detail_id int primary key auto_increment, order_id int, book_id int, quantity int, price int, foreign key (order_id) references orders(order_id), foreign key (book_id) references books(book_id))
+
+-- ********* Insert Data into the table ******* ------------
+
+-- insert into customers (name, email) values ('Alice', 'alice@email.com'), ('Bob', 'bob@email.com'), ('John', 'john@email.com');
+-- insert into books (title,author, price, stock) values ('The Art of SQL', 'John Doe', 29, 10), ('Database Design', 'Jane Smith', 35, 5), ('Mastering MySQL', 'Alex', 40, 8);
+-- insert into orders(customer_id, total_amount) values (1, 60), (2, 40);
+-- insert into order_details (book_id , quantity, price) values (2, 2, 70), (3, 1, 40), (1, 1, 29)
+
+-- ********* Checking all the inserted data  ******** ----------
+-- select * from customers
+-- select * from books
+-- select * from orders
+-- select * from order_details
+
+-- ******** use subquery --------
+-- 1.  Find customers who placed an order   --------------
+--  select name from customers where customer_id in (select customer_id from orders); 
+
+-- 2.  Find the most expensive product (book)  --------
+-- select title, price from books where price = (select  max  (price) from books);
+
+-- 3.  Find books that have been ordered. -----
+-- select title from books where book_id in (select book_id from order_details); 
+ 
+-- ************ Create Procedure to create function for updating total price -------------------
+
+/*DELIMITER // 
+CREATE PROCEDURE PlaceOrder (IN p_customer_id int, p_book_id int, in p_quantity int) 
+BEGIN 
+DECLARE book_price int; 
+DECLARE total_price int; 
+SELECT price INTO book_price FROM books WHERE book_id = p_book_id; 
+SET total_price = book_price * p_quantity; 
+INSERT INTO orders (customer_id, total_amount) VALUES (p_customer_id, total_price); 
+INSERT INTO order_details (order_id, book_id, quantity, price) 
+VALUES (LAST_INSERT_ID(), p_book_id, p_quantity, total_price); 
+END // 
+DELIMITER ; */
+
+-- call PlaceOrder(1,2,3)
+
+-- *********** Transactions ------------------ **********
+
+ /* START TRANSACTION; 
+ SELECT stock INTO @stock FROM books WHERE book_id = 2; 
+ IF @stock >= 1 THEN 
+ UPDATE books SET stock = stock - 1 WHERE book_id = 2; 
+ INSERT INTO orders (customer_id, total_amount) VALUES (1, 30); 
+ INSERT INTO order_details (order_id, book_id, quantity, price) VALUES 
+ (LAST_INSERT_ID(), 2, 1, 30); 
+ COMMIT; 
+ ELSE 
+ ROLLBACK; 
+ END IF; */
