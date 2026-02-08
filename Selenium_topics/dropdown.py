@@ -19,7 +19,7 @@ time.sleep(2)
 # Handling radio button with dynamic approach
 # driver.find_element(By.XPATH,"//label[@for='demo-priority-normal']").click()
 
-# radio_btns = driver.find_elements(By.XPATH,"//label[contains(@for,'demo-priority')]")
+# radio_btns = driver.find_elements(By.XPATH,"//label[contains(@for,'demo-priority')]") # list of webelements wil be stored in a list data type
 # for each_radio_btn in radio_btns: #[element1,element2,element3]
 #     each_radio_btn.click()
 #     time.sleep(2)
