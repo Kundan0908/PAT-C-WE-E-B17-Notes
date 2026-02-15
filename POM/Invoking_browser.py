@@ -7,3 +7,5 @@ class Browser:
         driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
         driver.implicitly_wait(10)
         return driver
+        # yield driver
+        # driver.quit()
