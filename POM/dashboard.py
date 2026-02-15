@@ -1,12 +1,14 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from POM.load_userdata import ExcelData
 
 class Dashboard:
     def __init__(self,driver):
         self.driver = driver # object variables
-        self.user_role = 'Admin'
-        self.admin_loc = (By.XPATH,"//span[text()='e']")
+        self.filename = "C:/Users/Kundan_Kumar/Desktop/Notes/Guvi_Notes/user_details.xlsx"
+        self.sheetname = 'user_data'
+        self.admin_loc = (By.XPATH,"//span[text()='Admin']")
         self.add_user_btn = (By.XPATH,"//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")
         self.user_role_drpdwn = (By.XPATH,"(//div[@class='oxd-select-text-input'])[1]")
         self.select_user_role = (By.XPATH,"//div[@class='oxd-select-option']")
@@ -27,30 +29,32 @@ class Dashboard:
         self.driver.find_element(*self.add_user_btn).click()
 
     def fill_user_details(self):
+        excel_values = ExcelData(self.filename,self.sheetname)
+        workbook, worksheet = excel_values.load_excel_wrkbook()
+        user_data = excel_values.get_data_(worksheet=worksheet)
         self.driver.find_element(*self.user_role_drpdwn).click()
         role = self.driver.find_elements(*self.select_user_role)
         for user_role in role:  # ESS
             role = user_role.text
-            if role == self.user_role:
+            if role == user_data[2]:
                 user_role.click()
                 break
-            elif role == self.user_role:
+            elif role == user_data[2]:
                 user_role.click()
                 break
             else:
                 continue
 
-        self.driver.find_element(*self.emp_name_hints).send_keys('user')
+        self.driver.find_element(*self.emp_name_hints).send_keys(user_data[3])
         element = self.driver.find_elements(*self.select_first_emp_name)
         for first_element in range(len(element)):
             element[first_element].click()
             break
-
-        self.driver.find_element(*self.username_field).send_keys('Test123')
-        self.driver.find_element(*self.password_field).send_keys('Test123')
+        self.driver.find_element(*self.username_field).send_keys(user_data[5])
+        self.driver.find_element(*self.password_field).send_keys(user_data[6])
         self.driver.find_element(*self.status_field).click()
         self.driver.find_element(*self.select_enabled_).click()
-        self.driver.find_element(*self.confirm_pwd_field).send_keys('Test123')
+        self.driver.find_element(*self.confirm_pwd_field).send_keys(user_data[7])
 
     def click_save_btn(self):
         self.driver.find_element(*self.save_btn).click()

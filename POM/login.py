@@ -4,7 +4,6 @@ from fileinput import filename
 from selenium.webdriver.common.by import By
 from POM.load_userdata import ExcelData
 
-
 class Login:
     def __init__(self,driver):
         self.driver = driver

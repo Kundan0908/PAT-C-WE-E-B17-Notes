@@ -7,8 +7,8 @@ def test_login_scenario():
     firefox_browser = launch_browser.invoke_browser()
     user_login = Login(firefox_browser)
     user_login.navigate_url()
-    title_of_page = user_login.login_()
-    if title_of_page == 'OrangeHRM':
+    url_of_page = user_login.login_()
+    if url_of_page == 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index':
         print("Successfully logged in, TestCase Passed")
     else:
         print("Unable to log in, TestCase Failed")
