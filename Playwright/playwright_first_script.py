@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 with sync_playwright() as p:
     browser = p.firefox.launch(headless=False)
@@ -8,4 +8,5 @@ with sync_playwright() as p:
     page.locator('[name="username"]').fill('Admin')
     page.locator('[type="password"]').fill('admin123')
     page.locator('[type="submit"]').click()
+    # expect(page).to_have_title('OrangeHRM')
     browser.close()
