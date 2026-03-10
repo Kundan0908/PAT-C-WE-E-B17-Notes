@@ -1,0 +1,38 @@
+BDD (T) -> Behavioural driven development (testing)
+TDD (T) -> Test driven development testing
+
+job is to test login functionality
+
+1. Write a test case - Pass
+2. validate test case by manually testing. - Pass
+------ Problem is linking testcase with automation suite ---
+3. convert your testcase to automation scripts - Pass
+4. Executing it with automation tool - Pass
+5. Confirm to team, functionality is working fine - Pass
+
+How will you make sure that test case and automation scripts are for same scenario?
+Soln - TestCase has test id, mapping of test id with automation scripts will fix this issue
+Next Problem -> You have 6 test steps in a  test case, how will you make sure those steps are covered in automation
+
+This gap of having test steps coverage is filled by BDD (Gherkin language)
+
+The Feature part consists of the test case and the test-steps (feature steps) written inside a feature file
+Feature: As a QA, I want to test login functionality so that I can verify the working of the functionality ( Test Functionality)
+    Scenario: Test login functionality with valid username and password (TestCase)
+        Given: Prerequisite (Pre needed), User navigates to url
+        When : Action that you will perform which are user enters the username
+        And : user enters the password
+        And : user clicks on login button
+        Then : Result or the behaviour of application that you observ, user should be able to login / user should be able to go to landing page
+        And: Used should be able to see items on the page
+
+
+# To map each step with code login, we have to create a step definition file which is .py file
+
+@given('User navigates to url')
+def user_navigates_to_url():
+    driver.get("https://www.saucedemo.com/")
+
+@when('user enters the username')
+def user_enters_username():
+    driver.find_element().send_keys('abc')
