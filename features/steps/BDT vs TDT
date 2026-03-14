@@ -1,0 +1,11 @@
+TDT -> Test driven testing -> Testing/ Writing testcase before development of functionality
+BDT -> behaviour driven testing -> Testing/Writing testcase after development of functionality.
+
+TDT is used in projects/application which are getting built from scratch
+BDT is used in projects/ application which are up and running and have some enhancements done
+
+Advantage
+TDT -> if testcases are written before then during development developers can refer them while developing functionality
+this will make sure the basic functionality is working and it also leads to having less bug detection
+BDT -> as this is used for application which is running and have some enhancement done this requires retesting of existing functionality
+along with new enhancement testing.

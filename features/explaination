@@ -1,6 +1,15 @@
 BDD (T) -> Behavioural driven development (testing)
 TDD (T) -> Test driven development testing
 
+# Writing testcase manually -> Functionality -> log in
+                            -> Testcase 1: checking logging in with correct credentials -> steps to perform -> verifying expected vs actual -> Results to Testcase Pass/ Fail
+                            -> Testcase 2: checking logging in with incorrect credentials
+
+
+# Developing testcase in automation with use of BDD -> Functionality -> log in
+                            -> Testcase 1 is referred as (Scenario): checking logging in with correct credentials -> steps to perform (steps mentioned in when feature step) -> verifying expected vs actual (Then) -> Results to Testcase Pass/ Fail
+
+
 job is to test login functionality
 
 1. Write a test case - Pass
@@ -36,3 +45,7 @@ def user_navigates_to_url():
 @when('user enters the username')
 def user_enters_username():
     driver.find_element().send_keys('abc')
+
+
+
+
